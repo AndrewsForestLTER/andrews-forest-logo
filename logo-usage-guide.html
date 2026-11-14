@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="H.J. Andrews Experimental Forest logo usage, attribution, colors, variants, and production asset guide.">
+  <title>H.J. Andrews Experimental Forest — Logo Usage Guide</title>
+  <link rel="icon" href="favicon/favicon.ico" sizes="any">
+  <style>
+    :root {
+      --ink: #172019;
+      --muted: #5c685f;
+      --paper: #f7f7f2;
+      --white: #ffffff;
+      --forest: #173a2a;
+      --forest-deep: #0b2419;
+      --moss: #8fbd3d;
+      --moss-light: #c8df97;
+      --name: #b4cf78;
+      --subtitle: #b2b0ad;
+      --brown: #783100;
+      --forest-text-deep: #4a220a;
+      --orange: #ef8f54;
+      --pink: #c97f90;
+      --line: #dce2da;
+      --danger: #a73728;
+      --radius: 20px;
+      --shadow: 0 16px 42px rgba(21, 43, 30, .10);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: #285d3f; text-underline-offset: 3px; }
+    a:hover { color: #163e2a; }
+
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 1rem;
+      z-index: 100;
+      padding: .75rem 1rem;
+      background: var(--white);
+      border-radius: 8px;
+    }
+    .skip-link:focus { top: 1rem; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(247, 247, 242, .92);
+      border-bottom: 1px solid rgba(23, 32, 25, .08);
+      backdrop-filter: blur(12px);
+    }
+    .nav {
+      width: min(1180px, calc(100% - 32px));
+      margin: auto;
+      min-height: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+    .nav-brand {
+      width: min(285px, 58vw);
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+    }
+    .nav-brand img { width: 100%; height: auto; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .nav-links a {
+      color: var(--muted);
+      font-size: .9rem;
+      font-weight: 650;
+      text-decoration: none;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      color: var(--white);
+      background:
+        radial-gradient(circle at 78% 18%, rgba(143, 189, 61, .32), transparent 25rem),
+        linear-gradient(135deg, var(--forest-deep), var(--forest));
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      right: -120px;
+      bottom: -260px;
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: 50%;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      width: min(1180px, calc(100% - 32px));
+      margin: auto;
+      padding: clamp(2rem, 4vw, 3.5rem) 0;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(340px, .95fr);
+      gap: clamp(2rem, 4vw, 4rem);
+      align-items: center;
+    }
+    .eyebrow {
+      margin: 0 0 .7rem;
+      color: var(--name);
+      font-size: .77rem;
+      font-weight: 850;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    h1, h2, h3 { line-height: 1.12; }
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      font-size: clamp(2.5rem, 5.5vw, 5.25rem);
+      letter-spacing: -.055em;
+    }
+    .hero-copy {
+      max-width: 620px;
+      margin: 1rem 0 0;
+      color: rgba(255,255,255,.78);
+      font-size: clamp(1rem, 1.7vw, 1.18rem);
+    }
+    .hero-mark {
+      min-height: 300px;
+      padding: clamp(1.4rem, 4vw, 3rem);
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 28px;
+      box-shadow: 0 25px 70px rgba(0,0,0,.25);
+    }
+    .hero-mark img { width: 100%; }
+
+    .hero-newt {
+      padding: clamp(1.15rem, 2vw, 1.65rem);
+      color: var(--ink);
+      background: var(--white);
+      border: 1px solid rgba(255,255,255,.24);
+      border-radius: 28px;
+      box-shadow: 0 25px 70px rgba(0,0,0,.25);
+    }
+    .hero-newt-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(135px, .62fr);
+      gap: 1rem;
+      align-items: center;
+    }
+    .hero-newt-head img {
+      width: 100%;
+      max-height: 120px;
+      object-fit: contain;
+    }
+    .hero-newt .eyebrow { color: #55743a; }
+    .hero-newt h2 {
+      margin: 0;
+      font-size: clamp(1.45rem, 2.2vw, 2rem);
+      letter-spacing: -.035em;
+    }
+    .hero-newt > p {
+      margin: .6rem 0 0;
+      color: var(--muted);
+      font-size: .91rem;
+    }
+    .hero-newt .punchline {
+      padding: 0;
+      color: var(--ink);
+      background: transparent;
+      border-radius: 0;
+      font-style: italic;
+      font-weight: 700;
+    }
+    .hero-newt .handling {
+      margin: .6rem 0 0;
+      color: var(--muted);
+      font-size: .91rem;
+      line-height: 1.5;
+    }
+    .hero-newt a { color: #285d3f; }
+
+    main { width: min(1180px, calc(100% - 32px)); margin: auto; }
+    section { padding: clamp(4rem, 8vw, 7rem) 0; }
+    section + section { border-top: 1px solid var(--line); }
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 2.2rem;
+    }
+    h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      letter-spacing: -.04em;
+    }
+    h3 { margin: 0; font-size: 1.22rem; }
+    .lede { color: var(--muted); font-size: 1.08rem; }
+
+    .notice {
+      margin-top: 2rem;
+      padding: 1.1rem 1.25rem;
+      background: #edf3e4;
+      border-left: 4px solid var(--moss);
+      border-radius: 0 12px 12px 0;
+      color: #334334;
+    }
+
+    .newt-fact {
+      margin-top: 1.25rem;
+      padding: clamp(1.35rem, 4vw, 2.5rem);
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(180px, .7fr);
+      gap: clamp(1.5rem, 5vw, 4rem);
+      align-items: center;
+      color: var(--ink);
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+    }
+    .newt-fact img {
+      width: 100%;
+      max-height: 240px;
+      object-fit: contain;
+    }
+    .newt-fact h3 { font-size: clamp(1.55rem, 3vw, 2.5rem); }
+    .newt-fact .eyebrow { color: #55743a; }
+    .newt-fact p { color: var(--muted); }
+    .newt-fact .punchline {
+      margin-bottom: .6rem;
+      padding: .8rem 1rem;
+      color: #2c1709;
+      background: var(--orange);
+      border-radius: 12px;
+      font-weight: 850;
+    }
+    .newt-fact a { color: #285d3f; }
+
+    .grid { display: grid; gap: 1.25rem; }
+    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+    .card {
+      overflow: hidden;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 8px 28px rgba(21, 43, 30, .05);
+    }
+    .card-body { padding: 1.35rem; }
+    .card-body p { margin: .55rem 0 0; color: var(--muted); }
+    .asset-stage {
+      min-height: 270px;
+      padding: 2rem;
+      display: grid;
+      place-items: center;
+      background:
+        linear-gradient(45deg, #f3f3ed 25%, transparent 25%),
+        linear-gradient(-45deg, #f3f3ed 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #f3f3ed 75%),
+        linear-gradient(-45deg, transparent 75%, #f3f3ed 75%), #fff;
+      background-position: 0 0, 0 10px, 10px -10px, -10px 0;
+      background-size: 20px 20px;
+    }
+    .asset-stage.dark { background: var(--forest-deep); }
+    .asset-stage img { width: 100%; max-height: 235px; object-fit: contain; }
+    .asset-stage.square img { max-width: 280px; }
+    .asset-links { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: 1rem; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      padding: .5rem .78rem;
+      color: var(--forest-deep);
+      background: #eef4e6;
+      border: 1px solid #d7e5c5;
+      border-radius: 999px;
+      font-size: .82rem;
+      font-weight: 750;
+      text-decoration: none;
+    }
+    .button:hover { background: #e2efd2; }
+
+    .rule-card {
+      padding: 1.5rem;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+    .rule-card .number {
+      display: inline-grid;
+      width: 2rem;
+      height: 2rem;
+      margin-bottom: 1rem;
+      place-items: center;
+      color: var(--white);
+      background: var(--forest);
+      border-radius: 50%;
+      font-size: .85rem;
+      font-weight: 800;
+    }
+
+    .clearspace {
+      position: relative;
+      min-height: 320px;
+      padding: clamp(3rem, 7vw, 5.5rem);
+      display: grid;
+      place-items: center;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+    .clearspace::before {
+      content: "Recommended clearspace";
+      position: absolute;
+      inset: 2rem;
+      padding: .5rem;
+      color: var(--muted);
+      border: 2px dashed #a9baaa;
+      border-radius: 12px;
+      font-size: .78rem;
+      font-weight: 750;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .clearspace img { width: min(760px, 85%); }
+
+    .background-demo {
+      min-height: 220px;
+      padding: 2rem;
+      display: grid;
+      place-items: center;
+      border-radius: var(--radius);
+    }
+    .background-demo img { width: 90%; }
+    .bg-white { background: #fff; border: 1px solid var(--line); }
+    .bg-dark { background: var(--forest-deep); }
+    .bg-green { background: #315c3d; }
+
+    .misuse {
+      position: relative;
+      min-height: 205px;
+      padding: 2rem;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background: var(--white);
+      border: 1px solid #edd1ca;
+      border-radius: var(--radius);
+    }
+    .misuse::before {
+      content: "Do not";
+      position: absolute;
+      top: .8rem;
+      left: .8rem;
+      padding: .25rem .55rem;
+      color: #fff;
+      background: var(--danger);
+      border-radius: 999px;
+      font-size: .72rem;
+      font-weight: 850;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+    .misuse img { width: 85%; }
+    .misuse.stretch img { transform: scaleX(1.32); }
+    .misuse.rotate img { transform: rotate(-9deg); }
+    .misuse.effects img { filter: drop-shadow(9px 9px 0 #ee46a9); }
+    .misuse.recolor img { filter: hue-rotate(125deg) saturate(1.8); }
+    .misuse-label { margin: .8rem 0 0; color: var(--danger); font-weight: 700; }
+
+    .swatches {
+      display: grid;
+      gap: 1rem;
+      overflow-x: auto;
+      padding-bottom: .25rem;
+    }
+    .swatches.artwork { grid-template-columns: repeat(4, minmax(165px, 1fr)); }
+    .swatches.text-colors { grid-template-columns: repeat(4, minmax(165px, 1fr)); }
+    .palette-group + .palette-group { margin-top: 2rem; }
+    .palette-group h3 {
+      margin-bottom: .85rem;
+      color: var(--muted);
+      font-size: .9rem;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+    .swatch {
+      overflow: hidden;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+    }
+    .swatch-color { height: 105px; }
+    .swatch-copy { padding: 1rem; }
+    .swatch-copy strong, .swatch-copy code { display: block; }
+    .swatch-copy code { margin-top: .2rem; color: var(--muted); }
+
+    .credit-panel {
+      padding: clamp(1.5rem, 4vw, 3rem);
+      color: var(--white);
+      background: var(--forest-deep);
+      border-radius: 24px;
+    }
+    .credit-panel blockquote {
+      margin: 1.2rem 0;
+      color: var(--name);
+      font-size: clamp(1.4rem, 3vw, 2.45rem);
+      font-weight: 750;
+      letter-spacing: -.03em;
+      line-height: 1.25;
+    }
+    .credit-panel p { color: rgba(255,255,255,.76); }
+    .credit-panel a { color: var(--moss-light); }
+
+    .ack-list { display: grid; gap: 1rem; margin-top: 1.5rem; }
+    .ack-item {
+      padding: 1.25rem;
+      background: var(--white);
+      border-left: 4px solid var(--moss);
+      border-radius: 0 14px 14px 0;
+    }
+    .ack-item p { margin: .4rem 0 0; color: var(--muted); }
+
+    .footer {
+      margin-top: 2rem;
+      padding: 3rem 0;
+      color: rgba(255,255,255,.72);
+      background: var(--forest-deep);
+    }
+    .footer-inner {
+      width: min(1180px, calc(100% - 32px));
+      margin: auto;
+    }
+    .footer h2 { color: var(--white); }
+    .footer p { margin: .75rem 0 0; color: rgba(255,255,255,.72); }
+    .footer .credit-note {
+      max-width: 780px;
+      color: rgba(255,255,255,.58);
+      font-size: .9rem;
+    }
+    .footer a { color: var(--moss-light); }
+
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-mark { min-height: 220px; }
+      .grid.four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .grid.three { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 650px) {
+      .grid.two, .grid.four { grid-template-columns: 1fr; }
+      .newt-fact { grid-template-columns: 1fr; }
+      .newt-fact img { max-height: 170px; }
+      .hero-newt-head { grid-template-columns: 1fr; }
+      .hero-newt-head img { max-height: 130px; }
+      .asset-stage { min-height: 220px; padding: 1.4rem; }
+      .clearspace::before { inset: 1rem; }
+      .footer-inner { display: block; }
+    }
+    @media print {
+      .site-header, .asset-links { display: none; }
+      body { background: #fff; }
+      .hero { background: var(--forest-deep) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .card, .rule-card, .clearspace { break-inside: avoid; box-shadow: none; }
+      section { padding: 2rem 0; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to guide</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Guide navigation">
+      <a class="nav-brand" href="#top" aria-label="H.J. Andrews logo usage guide home">
+        <img src="svg/andrews-forest-logo-with-text-light-background.svg" alt="H.J. Andrews Experimental Forest and Long-Term Ecological Research">
+      </a>
+      <div class="nav-links">
+        <a href="#variants">Variants</a>
+        <a href="#color">Color</a>
+      </div>
+    </nav>
+  </header>
+
+  <header class="hero" id="top">
+    <div class="hero-inner">
+      <div>
+        <h1>H.J. Andrews Experimental Forest Logo Usage Guide</h1>
+        <p class="hero-copy">Logo variants, production colors, and downloadable assets for the H.J. Andrews Experimental Forest and Long-Term Ecological Research program.</p>
+      </div>
+      <aside class="hero-newt" id="newt" aria-labelledby="newt-title">
+        <div class="hero-newt-head">
+          <div>
+            <p class="eyebrow">Meet the newt</p>
+            <h2 id="newt-title">Rough-skinned newt <em>(Taricha granulosa)</em></h2>
+          </div>
+          <img src="svg/andrews-forest-logo-no-text.svg" alt="Illustrated rough-skinned newt from the Andrews Forest logo">
+        </div>
+        <p>The brown back and bright orange underside echo a real Pacific Northwest amphibian. Its skin and eggs can contain tetrodotoxin, a powerful neurotoxin used as a defense against predators.</p>
+        <p class="punchline">Admire the newt from afar. Never lick it.</p>
+        <p class="handling">If one is handled, avoid touching the mouth, nose, or eyes and wash hands afterward. Learn more from <a href="https://myodfw.com/wildlife-viewing/species/rough-skinned-newt">Oregon Department of Fish and Wildlife</a> and the <a href="https://www.oregonzoo.org/animals/roughskin-newt">Oregon Zoo</a>.</p>
+      </aside>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="variants">
+      <div class="section-head">
+        <h2>Variants</h2>
+        <p class="lede">Choose the variant that fits the intended background and layout. SVG files are high-quality, resolution-independent vectors for print, signage, and high-resolution displays. PNG files are transparent, lossless raster logos supplied at 400, 800, and 1200 pixels. Download and place the supplied asset that matches the intended layout.</p>
+      </div>
+
+      <div class="grid two">
+        <article class="card">
+          <div class="asset-stage dark">
+            <img src="svg/andrews-forest-logo-with-text.svg" alt="Primary horizontal logo for dark backgrounds">
+          </div>
+          <div class="card-body">
+            <h3>Primary horizontal logo — dark backgrounds</h3>
+            <p>Preferred for dark headers, presentations, signage, and placements where the program name must be immediately visible.</p>
+            <div class="asset-links">
+              <a class="button" href="svg/andrews-forest-logo-with-text.svg" download>SVG</a>
+              <a class="button" href="png/with-text/andrews-forest-logo-with-text-400px.png" download>PNG 400</a>
+              <a class="button" href="png/with-text/andrews-forest-logo-with-text-800px.png" download>PNG 800</a>
+              <a class="button" href="png/with-text/andrews-forest-logo-with-text-1200px.png" download>PNG 1200</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="asset-stage">
+            <img src="svg/andrews-forest-logo-with-text-light-background.svg" alt="Primary horizontal logo for light backgrounds">
+          </div>
+          <div class="card-body">
+            <h3>Primary horizontal logo — light backgrounds</h3>
+            <p>Use on letterhead, white paper, and other light surfaces. The deep brown primary text and salamander-brown subtitle maintain contrast without changing the illustration.</p>
+            <div class="asset-links">
+              <a class="button" href="svg/andrews-forest-logo-with-text-light-background.svg" download>SVG</a>
+              <a class="button" href="png/with-text-light-background/andrews-forest-logo-with-text-light-background-400px.png" download>PNG 400</a>
+              <a class="button" href="png/with-text-light-background/andrews-forest-logo-with-text-light-background-800px.png" download>PNG 800</a>
+              <a class="button" href="png/with-text-light-background/andrews-forest-logo-with-text-light-background-1200px.png" download>PNG 1200</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="asset-stage">
+            <img src="svg/andrews-forest-logo-no-text.svg" alt="Standalone salamander mark">
+          </div>
+          <div class="card-body">
+            <h3>Standalone salamander</h3>
+            <p>Use where the Andrews Forest identity is already established or when a compact horizontal symbol is needed.</p>
+            <div class="asset-links">
+              <a class="button" href="svg/andrews-forest-logo-no-text.svg" download>SVG</a>
+              <a class="button" href="png/no-text/andrews-forest-logo-no-text-400px.png" download>PNG 400</a>
+              <a class="button" href="png/no-text/andrews-forest-logo-no-text-800px.png" download>PNG 800</a>
+              <a class="button" href="png/no-text/andrews-forest-logo-no-text-1200px.png" download>PNG 1200</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="asset-stage square">
+            <img src="svg/andrews-forest-logo-no-text-square.svg" alt="Salamander centered on a square transparent canvas">
+          </div>
+          <div class="card-body">
+            <h3>Square salamander</h3>
+            <p>Best for profile images, avatars, thumbnails, and square content modules that do not need the trees.</p>
+            <div class="asset-links">
+              <a class="button" href="svg/andrews-forest-logo-no-text-square.svg" download>SVG</a>
+              <a class="button" href="png/no-text-square/andrews-forest-logo-no-text-square-400px.png" download>PNG 400</a>
+              <a class="button" href="png/no-text-square/andrews-forest-logo-no-text-square-800px.png" download>PNG 800</a>
+              <a class="button" href="png/no-text-square/andrews-forest-logo-no-text-square-1200px.png" download>PNG 1200</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="asset-stage square">
+            <img src="svg/andrews-forest-logo-no-text-with-trees-square.svg" alt="Trees and salamander centered on a square transparent canvas">
+          </div>
+          <div class="card-body">
+            <h3>Square trees &amp; salamander</h3>
+            <p>Use when a square mark should retain the complete environmental motif but omit the program name.</p>
+            <div class="asset-links">
+              <a class="button" href="svg/andrews-forest-logo-no-text-with-trees-square.svg" download>SVG</a>
+              <a class="button" href="png/no-text-with-trees-square/andrews-forest-logo-no-text-with-trees-square-400px.png" download>PNG 400</a>
+              <a class="button" href="png/no-text-with-trees-square/andrews-forest-logo-no-text-with-trees-square-800px.png" download>PNG 800</a>
+              <a class="button" href="png/no-text-with-trees-square/andrews-forest-logo-no-text-with-trees-square-1200px.png" download>PNG 1200</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="color">
+      <div class="section-head">
+        <h2>Color Palette</h2>
+        <p class="lede">These hexadecimal values document the supplied files.</p>
+      </div>
+      <div class="palette-group">
+        <h3>Salamander &amp; tree colors</h3>
+        <div class="swatches artwork">
+          <div class="swatch"><div class="swatch-color" style="background:#783100"></div><div class="swatch-copy"><strong>Salamander brown</strong><code>#783100</code></div></div>
+          <div class="swatch"><div class="swatch-color" style="background:#ef8f54"></div><div class="swatch-copy"><strong>Salamander orange</strong><code>#EF8F54</code></div></div>
+          <div class="swatch"><div class="swatch-color" style="background:#c97f90"></div><div class="swatch-copy"><strong>Salamander eye</strong><code>#C97F90</code></div></div>
+          <div class="swatch"><div class="swatch-color" style="background:linear-gradient(#c8df97,#8fbd3d)"></div><div class="swatch-copy"><strong>Tree gradient</strong><code>#C8DF97 → #8FBD3D</code></div></div>
+        </div>
+      </div>
+      <div class="palette-group">
+        <h3>Text colors</h3>
+        <div class="swatches text-colors">
+          <div class="swatch"><div class="swatch-color" style="background:#4a220a"></div><div class="swatch-copy"><strong>Primary text — light</strong><code>#4A220A</code></div></div>
+          <div class="swatch"><div class="swatch-color" style="background:#783100"></div><div class="swatch-copy"><strong>Subtitle text — light</strong><code>#783100</code></div></div>
+          <div class="swatch"><div class="swatch-color" style="background:#b4cf78"></div><div class="swatch-copy"><strong>Primary text — dark</strong><code>#B4CF78</code></div></div>
+          <div class="swatch"><div class="swatch-color" style="background:#b2b0ad"></div><div class="swatch-copy"><strong>Subtitle text — dark</strong><code>#B2B0AD</code></div></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <h2>Credits</h2>
+      <p>Original logo design: Pam Druliner Russell</p>
+      <p class="credit-note">Modernized and repackaged in 2026 by Jason Lancaster. The salamander artwork was curve-traced from the supplied official 300-dpi master. Pixel stair-stepping was smoothed while retaining the source eye and separated toe geometry. Text was converted to vector outlines.</p>
+    </div>
+  </footer>
+</body>
+</html>
